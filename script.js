@@ -86,6 +86,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Stats Counter Animation ---
+    const statsCounter = document.getElementById('stats-counter');
+    if (statsCounter) {
+        const animateCountUp = (el) => {
+            const goal = parseInt(el.dataset.goal, 10);
+            const duration = 1500; // 1.5 seconds
+            let startTimestamp = null;
+
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                el.textContent = Math.floor(progress * goal);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    el.textContent = goal + "+"; // Add the '+' at the end
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        animateCountUp(counter);
+                    });
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.1 }); // Start when 10% of the element is visible
+
+        observer.observe(statsCounter);
+    }
+
     // --- Testimonial Slider ---
     const sliderContainer = document.querySelector('#testimonials .relative');
     const slider = document.getElementById('testimonial-slider');
