@@ -6,7 +6,7 @@ body {
 /* Neon Glow Effect */
 .neon-text {
     color: #34d399;
-    text-shadow: 0 0 5px #34d399, 0 0 10px #34d399, 0 0 20px #10b981;
+    text-shadow: 0 0 2px #34d399, 0 0 5px #34d399, 0 0 10px #10b981;
 }
 .neon-border {
     border-color: #34d399;
@@ -91,3 +91,63 @@ body {
     }
 }
 
+
+/* Privacy Policy Page Styles */
+.privacy-policy-content {
+    background-color: rgba(17, 24, 39, 0.8); /* bg-gray-900/80 */
+    border: 1px solid #34d399;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.privacy-policy-content h2 {
+    color: #34d399;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.privacy-policy-content h3 {
+    color: #a5f3fc;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-policy-content h4 {
+    color: #a5f3fc;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-policy-content p {
+    color: #d1d5db; /* text-gray-300 */
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.privacy-policy-content ul {
+    color: #d1d5db; /* text-gray-300 */
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.privacy-policy-content a {
+    color: #34d399;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.privacy-policy-content a:hover {
+    color: #10b981;
+    text-decoration: underline;
+}
