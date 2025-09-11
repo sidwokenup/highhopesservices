@@ -18,9 +18,9 @@
       "use": "@vercel/static"
     },
     {
-        "src": "three-animation.js",
-        "use": "@vercel/static"
-      },
+      "src": "three-animation.js",
+      "use": "@vercel/static"
+    },
     {
       "src": "images/**",
       "use": "@vercel/static"
@@ -32,8 +32,8 @@
       "dest": "/api/contact.js"
     },
     {
-        "src": "/((?!api/).*)",
-        "dest": "/index.html"
-      }
+      "src": "/((?!api/).*)",
+      "dest": "/index.html"
+    }
   ]
 }
