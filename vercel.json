@@ -2,8 +2,16 @@
   "version": 2,
   "builds": [
     {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "api/contact.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "!(api)/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,10 +20,7 @@
       "dest": "/api/contact.js"
     },
     {
-      "src": "/(.*)",
-      "headers": {
-        "cache-control": "s-maxage=0"
-      },
+      "src": "/((?!api/).*)",
       "dest": "/index.html"
     }
   ]
