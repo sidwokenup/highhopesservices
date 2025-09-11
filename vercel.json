@@ -4,26 +4,6 @@
     {
       "src": "api/contact.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "styles.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "script.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "three-animation.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "images/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -32,7 +12,10 @@
       "dest": "/api/contact.js"
     },
     {
-      "src": "/((?!api/).*)",
+      "src": "/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=0"
+      },
       "dest": "/index.html"
     }
   ]
