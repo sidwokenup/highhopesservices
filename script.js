@@ -66,22 +66,33 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleError(message, message.value.trim() === '');
             
             if (isValid) {
-                // In a real app, you would send the form data to a server here.
-                console.log('Form is valid. Submitting...');
-                console.log({
+                const formData = {
                     name: name.value,
                     email: email.value,
                     service: service.value,
                     message: message.value
+                };
+
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    document.getElementById('form-success').classList.remove('hidden');
+                    form.reset();
+                    setTimeout(() => {
+                        document.getElementById('form-success').classList.add('hidden');
+                    }, 5000);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('There was an error sending your message. Please try again later.');
                 });
-                
-                // Show success message and reset form
-                document.getElementById('form-success').classList.remove('hidden');
-                form.reset();
-                
-                setTimeout(() => {
-                     document.getElementById('form-success').classList.add('hidden');
-                }, 5000);
             }
         });
     }
